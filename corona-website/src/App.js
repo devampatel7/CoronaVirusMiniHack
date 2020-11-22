@@ -328,7 +328,7 @@ class App extends Component {
     return (
       <div>
         <div class="header">
-          <h1>Corona Statistics</h1>
+          <h1>COVID-19 Statistics</h1>
           <p>An updated list of current Corona virus statistics</p>
         </div>
 
@@ -338,23 +338,16 @@ class App extends Component {
           {this.state.lowgraph}
         </div>
 
-        {this.state.loading || !this.state.country ? (
-          <div>loading...</div>
-        ) : (
-          <div>
-            <div> {this.state.country.Country} : {this.state.country.TotalConfirmed} </div>
-            <div> {this.state.countryMax1.Country} : {this.state.countryMax1.TotalConfirmed} </div>
-            <div> {this.state.countryMax2.Country} : {this.state.countryMax2.TotalConfirmed} </div>
-            <div> {this.state.countryMax3.Country} : {this.state.countryMax3.TotalConfirmed} </div>
-            <div> {this.state.countryMax4.Country} : {this.state.countryMax4.TotalConfirmed} </div>
-            <div> {this.state.countryMax5.Country} : {this.state.countryMax5.TotalConfirmed} </div>
-            <div> {this.state.countryMax6.Country} : {this.state.countryMax6.TotalConfirmed} </div>
-            <div> {this.state.countryMax7.Country} : {this.state.countryMax7.TotalConfirmed} </div>
-            <div> {this.state.countryMax8.Country} : {this.state.countryMax8.TotalConfirmed} </div>
-            <div> {this.state.countryMax9.Country} : {this.state.countryMax9.TotalConfirmed} </div>
-            <div> {this.state.countryMax10.Country} : {this.state.countryMax10.TotalConfirmed} </div>
-          </div>
-        )}
+        <p>
+          This website was created by 3 Rutgers Freshman:  Kanish Vangiliappan, Devam Patel, Max Handler.
+          This project is comprised of a daily updated COVID-19 API, which has all sorts of information in reagerd to infection rates.
+          It is dynamically organized into the countries with the top 10 highest and lowest 10 cases.
+          This means when a countries ranking changes the graphs will also move accordingly, so no hard coded information. 
+          By using bar graphs, we categorically plot data according to each country. If a certain
+          country has a jump in cases, the graphs and interactive interface will reflect the change.
+          The technologies utilized in this application is a React based frontend platform supported by a JSON Rest-API.
+          Backend data was obtained and tested through Postman and developed using VS Code.
+        </p>
 
         <div class="footer">
           <p>This website is made for the USACS Minihacks Hackathon</p>
