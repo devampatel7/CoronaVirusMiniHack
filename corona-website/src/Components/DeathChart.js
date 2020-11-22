@@ -1,13 +1,13 @@
 import React from 'react'
 import { HorizontalBar } from 'react-chartjs-2'
 
-function HorizontalBarChart(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10) {
+function DeathBarChart(f1, f2, f3,f4, f5, f6, f7, f8, f9, f10, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10) {
     const data = {
-        labels: [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10],
+        labels: [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10],
         datasets: [
             {
                 label: 'Total Cases',
-                data: [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10],
+                data: [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10],
                 borderColor: [
                     'rgba(42, 210, 243, 0.5)',
                     'rgba(42, 210, 243,, 0.5)',
@@ -39,7 +39,7 @@ function HorizontalBarChart(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, d1, d2, d3,
     const options = {
         title: {
             display: true,
-            text: 'Top 10 Countries Chart'
+            text: 'Bottom 10 Countries'
         },
         scales: {
             yAxes: [
@@ -57,4 +57,4 @@ function HorizontalBarChart(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, d1, d2, d3,
     return <HorizontalBar data={data} options={options}/>
 } 
 
-export default HorizontalBarChart
+export default DeathBarChart

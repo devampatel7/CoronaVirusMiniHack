@@ -1,7 +1,8 @@
 import React, {Component, useState} from "react";
 import './App.css';
 import LineChart from "./Components/LineChart";
-import BarChart from "./Components/BarChart";
+import HorizontalBarChart from "./Components/BarChart";
+import DeathBarChart from "./Components/DeathChart";
 //import Country1 from "./Components/Country1";
 //mport ReactDOM from "react-dom";
 //import ReactTooltip from "react-tooltip";
@@ -22,7 +23,19 @@ class App extends Component {
     countryMax7: null,
     countryMax8: null,
     countryMax9: null,
-    countryMax10: null
+    countryMax10: null,
+    graph: null,
+    lowcountryMax1: null,
+    lowcountryMax2: null,
+    lowcountryMax3: null,
+    lowcountryMax4: null,
+    lowcountryMax5: null,
+    lowcountryMax6: null,
+    lowcountryMax7: null,
+    lowcountryMax8: null,
+    lowcountryMax9: null,
+    lowcountryMax10: null,
+    lowgraph: null
   };
 
   async componentDidMount(){ 
@@ -130,6 +143,151 @@ class App extends Component {
       }
     }
     
+    
+    //1st min
+    let minInd = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed){
+        minInd = i;
+      }
+    }
+    
+    //2nd min
+    let minInd2 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd2];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd)){
+        minInd2 = i;
+      }
+    } 
+
+    // 3rd min
+    let minInd3 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd3];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2)){
+        minInd3 = i;
+      }
+    } 
+    
+    // 4th min
+    let minInd4 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd4];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2 && i != minInd3)){
+        minInd4 = i;
+      }
+    }
+    
+    // 5th min 
+    let minInd5 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd5];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2 && i != minInd3 && i != minInd4)){
+        minInd5 = i;
+      }
+    }
+    
+    //6th min
+    let minInd6 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd6];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2 && i != minInd3 && i != minInd4 && i != minInd5)){
+        minInd6 = i;
+      }
+    }
+
+    // 7th min
+    let minInd7 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd7];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2 && i != minInd3 && i != minInd4 && i != minInd5 && i != minInd6)){
+        minInd7 = i;
+      }
+    }
+
+    // 8th min 
+    let minInd8 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd8];
+      if(cont1.TotalConfirmed < cont2.TotalConfirmed && (i != minInd && i != minInd2 && i != minInd3 && i != minInd4 && i != minInd5 && i != minInd6 && i != minInd7)){
+        minInd8 = i;
+      }
+    }
+    
+    //9th min
+    let minInd9 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd9];
+      if((cont1.TotalConfirmed < cont2.TotalConfirmed) && (i!=minInd && i!=minInd2 && i!=minInd3 && i!=minInd4 && i!=minInd5 && i!=minInd6 && i!=minInd7 && i!=minInd8)){
+        minInd9 = i;
+      }
+    }
+
+    //10th min
+    let minInd10 = 0;
+    for(let i = 1; i < 190; i++){
+      const cont1 = data.Countries[i];
+      const cont2 = data.Countries[minInd10];
+      if((cont1.TotalConfirmed < cont2.TotalConfirmed)&&(i!=minInd && i!=minInd2 && i!=minInd3 && i!=minInd4 && i!=minInd5 && i!=minInd6 && i!=minInd7 && i!=minInd8 && i!=minInd9)){
+        minInd10 = i;
+      }
+    }
+    
+    const f1 = data.Countries[minInd].Country;
+    const f2 = data.Countries[minInd2].Country;
+    const f3 = data.Countries[minInd3].Country;
+    const f4 = data.Countries[minInd4].Country;
+    const f5 = data.Countries[minInd5].Country;
+    const f6 = data.Countries[minInd6].Country;
+    const f7 = data.Countries[minInd7].Country;
+    const f8 = data.Countries[minInd8].Country;
+    const f9 = data.Countries[minInd9].Country;
+    const f10 = data.Countries[minInd10].Country;
+    
+    const g1 = data.Countries[minInd].TotalConfirmed;
+    const g2 = data.Countries[minInd2].TotalConfirmed;
+    const g3 = data.Countries[minInd3].TotalConfirmed;
+    const g4 = data.Countries[minInd4].TotalConfirmed;
+    const g5 = data.Countries[minInd5].TotalConfirmed;
+    const g6 = data.Countries[minInd6].TotalConfirmed;
+    const g7 = data.Countries[minInd7].TotalConfirmed;
+    const g8 = data.Countries[minInd8].TotalConfirmed;
+    const g9 = data.Countries[minInd9].TotalConfirmed;
+    const g10 = data.Countries[minInd10].TotalConfirmed;
+
+    const c1 = data.Countries[maxInd].Country;
+    const c2 = data.Countries[maxInd2].Country;
+    const c3 = data.Countries[maxInd3].Country;
+    const c4 = data.Countries[maxInd4].Country;
+    const c5 = data.Countries[maxInd5].Country;
+    const c6 = data.Countries[maxInd6].Country;  
+    const c7 = data.Countries[maxInd7].Country;
+    const c8 = data.Countries[maxInd8].Country;
+    const c9 = data.Countries[maxInd9].Country;
+    const c10 = data.Countries[maxInd10].Country;
+    
+    const d1 = data.Countries[maxInd].TotalConfirmed;
+    const d2 = data.Countries[maxInd2].TotalConfirmed;
+    const d3 = data.Countries[maxInd3].TotalConfirmed;
+    const d4 = data.Countries[maxInd4].TotalConfirmed;
+    const d5 = data.Countries[maxInd5].TotalConfirmed;
+    const d6 = data.Countries[maxInd6].TotalConfirmed;
+    const d7 = data.Countries[maxInd7].TotalConfirmed;
+    const d8 = data.Countries[maxInd8].TotalConfirmed;
+    const d9 = data.Countries[maxInd9].TotalConfirmed;
+    const d10 = data.Countries[maxInd10].TotalConfirmed;
+
     this.setState({
       country: data.Countries[0],
       countryMax1: data.Countries[maxInd],
@@ -142,8 +300,13 @@ class App extends Component {
       countryMax8: data.Countries[maxInd8],
       countryMax9: data.Countries[maxInd9],
       countryMax10: data.Countries[maxInd10],
+      graph: HorizontalBarChart(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10),
+      lowgraph: DeathBarChart(f1, f2, f3,f4, f5, f6, f7, f8, f9, f10, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10),
       loading: false
     });
+
+    
+    
   }
 
 
@@ -170,8 +333,9 @@ class App extends Component {
         </div>
 
         <div class="chart">
-          {/*<LineChart />*/}
-          <BarChart />
+         {/*<LineChart />*/}
+          {this.state.graph}
+          {this.state.lowgraph}
         </div>
 
         {this.state.loading || !this.state.country ? (
